@@ -195,13 +195,13 @@ Queue.prototype.indexOf = function(searchElement, fromIndex) {
  *
  * @static
  * @memberOf Queue
- * @returns {integer} Return the changed array of queue.
+ * @returns {Array} The changed array of queue.
  * @example
  *
  */
 Queue.prototype.remove = function(fromIndex, howMany) {
     if (arguments.length === 0) {
-        return this.array = [];
+        return this.array.splice(0, this.array.length);
     } else if (arguments.length === 1) {
         return this.array.splice(fromIndex, 1);
     } else {
@@ -209,6 +209,17 @@ Queue.prototype.remove = function(fromIndex, howMany) {
     }
 };
 
+/**
+ * Returns a string that represents the contents of a queue array.
+ *
+ * @static
+ * @memberOf Queue
+ * @returns {string} The string representing contents of a queue array.
+ * @example
+ *
+ * var myQueue = new Queue(-1, 'myData1', 'myData2', 'myData3');
+ * myQueue.toString()  // myData1,myData2,myData3
+ */
 Queue.prototype.toString = function() {
     return this.array.toString();
 };
