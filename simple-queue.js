@@ -1,7 +1,7 @@
 /**
  * @name 'Simple Queue'
- * @version "1.0"
- * @author "P-774LSI"
+ * @version '1.0'
+ * @author 'P-774LSI'
  * @license 'MIT License'
  */
 
@@ -169,14 +169,36 @@ Queue.prototype.isFull = function() {
     }
 };
 
+/**
+ * This method similar to `Array.prototype.indexOf()`.
+ * Returns first index at which a given value can be found in a queue array, or -1 if a given value does not contain it.
+ *
+ * @static
+ * @memberOf Queue
+ * @returns {integer} Returns the index of the first occurrence of value in the queue array, or -1 if not found.
+ * @example
+ *
+ * var myQueue = new Queue(-1, 'myData1', 'myData2', 'myData3');
+ * myQueue.indexOf('myData2');  // 1
+ * myQueue.indexOf('myData2', 2);  // -1
+ */
 Queue.prototype.indexOf = function(searchElement, fromIndex) {
-    if (arguments.length === 2) {
-        return this.array.indexOf(searchElement,  fromIndex);
+    if (arguments.length > 1) {
+        return this.array.indexOf(searchElement, fromIndex);
     } else {
         return this.array.indexOf(searchElement);
     }
 };
 
+/**
+ * Remove a data from an array of queue by index.
+ *
+ * @static
+ * @memberOf Queue
+ * @returns {integer} Return the changed array of queue.
+ * @example
+ *
+ */
 Queue.prototype.remove = function(fromIndex, howMany) {
     if (arguments.length === 0) {
         return this.array = [];
