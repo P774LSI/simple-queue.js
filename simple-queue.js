@@ -63,12 +63,33 @@ Queue.prototype.enqueue = function(data) {
  * @returns {*} Returns the oldest data if queue is not empty.
  * @example
  *
- * var myQueue = new Queue(-1, 'myData');
- * myQueue.enqueue();  // myData
+ * var myQueue = new Queue(-1, 'myData1', 'myData2');
+ * myQueue.dequeue();  // myData1
+ * myQueue.dequeue();  // myData2
  */
 Queue.prototype.dequeue = function() {
     if (this.array.length) {
         return this.array.shift();
+    } else {
+        //throw new Error('Queue is empty.');
+    }
+};
+
+/**
+ * Dequeue a data without removing it.
+ *
+ * @static
+ * @memberOf Queue
+ * @returns {*} Returns the oldest data if queue is not empty.
+ * @example
+ *
+ * var myQueue = new Queue(-1, 'myData');
+ * myQueue.peek();  // myData
+ * myQueue.peek();  // myData
+ */
+Queue.prototype.peek = function() {
+    if (this.array.length) {
+        return this.array[0];
     } else {
         //throw new Error('Queue is empty.');
     }
