@@ -201,7 +201,7 @@ Queue.prototype.indexOf = function(searchElement, fromIndex) {
  */
 Queue.prototype.remove = function(fromIndex, howMany) {
     if (arguments.length === 0) {
-        return this.array = [];
+        return this.array.splice(0, this.array.length);
     } else if (arguments.length === 1) {
         return this.array.splice(fromIndex, 1);
     } else {
