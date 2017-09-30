@@ -1,6 +1,6 @@
 /**
  * @name 'Simple Queue'
- * @version '1.0'
+ * @version '1.0.1'
  * @author 'P-774LSI'
  * @license 'MIT License'
  */
@@ -144,7 +144,10 @@ Queue.prototype.getMaxLength = function() {
  * myQueue.toString();  // myData1,myData2,myData3
  */
 Queue.prototype.setMaxLength = function(maxLength) {
-    this.maxLength = (Number.isInteger(maxLength) && maxLength >= 0) ? maxLength : Infinity;
+    // For ES6 or higher.
+    //this.maxLength = (Number.isInteger(maxLength) && maxLength >= 0) ? maxLength : Infinity;
+    // For lower than ES6.
+    this.maxLength = (typeof maxLength === 'number' && isFinite(maxLength) && Math.floor(maxLength) === maxLength && maxLength >= 0) ? maxLength : Infinity;
 };
 
 /**
@@ -191,8 +194,9 @@ Queue.prototype.isFull = function() {
 };
 
 /**
- * This method similar to `Array.prototype.indexOf()`.
  * Returns first index at which a given value can be found in a queue array, or -1 if a given value does not contain it.
+ * This method similar to `Array.prototype.indexOf()` and requirements ES6 or higher.
+ *
  *
  * @static
  * @memberOf Queue
@@ -219,6 +223,11 @@ Queue.prototype.indexOf = function(searchElement, fromIndex) {
  * @returns {Array} The changed array of queue.
  * @example
  *
+ * var myQueue = new Queue(-1, 'myData1', 'myData2', 'myData3', 'myData4', 'myData5');
+ * myQueue.remove(1);  // [ 'myData2' ]
+ * myQueue.remove(0, 2);  // [ 'myData1', 'myData3' ]
+ * myQueue.remove();  // [ 'myData4', 'myData5' ]
+ * myQueue.isEmpty();  // true
  */
 Queue.prototype.remove = function(fromIndex, howMany) {
     if (arguments.length === 0) {
