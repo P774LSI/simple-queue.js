@@ -21,16 +21,16 @@ However, you can polyfill the `Array.prototype.indexOf()` method.
 
 
 # APIs
-.enqueue(data)
-.dequeue()
-.peek()
-.getLength()
-.getMaxLength()
-.setMaxLength(maxLength)
-.isEmpty()
-.isFull()
-.indexOf(searchElement, fromIndex)
-.remove(fromIndex, howMany)
-.toString()
+    .enqueue(data)
+    .dequeue()
+    .peek()
+    .getLength()
+    .getMaxLength()
+    .setMaxLength(maxLength)
+    .isEmpty()
+    .isFull()
+    .indexOf(searchElement, fromIndex)
+    .remove(fromIndex, howMany)
+    .toString()
 
 More information
