@@ -16,7 +16,7 @@
  * @example
  * var myQueue1 = new Queue();
  * var myQueue2 = new Queue(10);  // Set the maximum length limit to 10.
- * var myQueue3 = new Queue(-1, 'myData', function myFunc() { console.log('queue test') }, 111);
+ * var myQueue3 = new Queue(-1, 'myData', function myFunc() { return 'called myFunc'; }, 111);
  */
 function Queue(maxLength, data1/*, data2, data3, ..., dataN*/) {
     var i = 1,
@@ -201,10 +201,10 @@ Queue.prototype.indexOf = function(searchElement, fromIndex) {
 };
 
 /**
- * Remove a data from an array of queue by index.
+ * Remove data from an array of queue by index.
  *
  * @memberOf Queue.prototype
- * @returns {Array} The changed array of queue.
+ * @returns {Array} An array containing the removed data.
  * @example
  * var myQueue = new Queue(-1, 'myData1', 'myData2', 'myData3', 'myData4', 'myData5');
  * myQueue.remove(1);  // [ 'myData2' ]
