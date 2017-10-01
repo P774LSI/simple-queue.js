@@ -1,7 +1,7 @@
 /**
  * simple-queue.js
  *
- * @version '1.0.1'
+ * @version '1.0.2'
  * @author 'P-774LSI'
  * @license 'MIT License'
  */
@@ -81,9 +81,9 @@ Queue.prototype.dequeue = function() {
  * @memberOf Queue.prototype
  * @returns {*} Returns the oldest data if queue is not empty.
  * @example
- * var myQueue = new Queue(-1, 'myData');
- * myQueue.peek();  // myData
- * myQueue.peek();  // myData
+ * var myQueue = new Queue(-1, 'myData1', 'myData2');
+ * myQueue.peek();  // myData1
+ * myQueue.peek();  // myData1
  */
 Queue.prototype.peek = function() {
     if (this.array.length) {
@@ -169,7 +169,7 @@ Queue.prototype.isEmpty = function() {
  * @example
  * var myQueue = new Queue(2);  // Set the maximum length limit to 2.
  * myQueue.enqueue('myData1');
- * yQueue.isFull();  // false
+ * myQueue.isFull();  // false
  * myQueue.enqueue('myData2');  // Now the queue will be full.
  * myQueue.isFull();  // true
  */
